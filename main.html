@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>user info</title>
+
+  <link rel="stylesheet" href="esempi.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+
+</head>
+
+<body>
+    prova
+    <div class="container">
+      <div class="toppane">Test Page
+
+      </div>
+
+      <div class="leftpane">
+      
+        <div class="centered"> <h1>Active Users available :</h1><br></div>
+        <div id="myDynamicTable" class="centered" >
+            
+        </div>
+    
+        <br>
+        <div id="example"  class="centered">
+            <button v-on:click="onclick" >{{example}}</button>
+        </div>
+        <script>
+            new Vue({
+                el: "#example",
+                data:{
+                    example : "Press to see Active Users",
+                },
+                methods:{
+                    onclick: function(){
+                        
+                        if(this.example!="done"){
+                            addTable()
+                            this.example = "done";
+
+                        // if(this.example=="done"){
+                        //   alert("I am an alert box!");
+                        // }
+                            
+                        }                    
+                    }
+                }
+            })
+        </script>
+        
+        
+        
+      </div>
+
+      <div class="rightpane">
+        <div > 
+          <div class="centered"> 
+            <h1>Write the user email to find the session done by him : </h1><br>
+          </div>
+          
+          <div class="centered">
+
+            <input  type="text" id="user_email"  value="" />
+            <br/>
+            <div id="showsessions">
+              <button v-on:click="onclicksession" >{{showsessions}}</button>
+            </div>
+            <script>
+              new Vue({
+                el: "#showsessions",
+                data:{
+                    showsessions : "search",
+                },
+                methods:{
+                    onclicksession: function(){
+                        if(this.example!="done"){
+                          addSessionTable()
+                            this.example = "done";                            
+                        }                    
+                    }
+                }
+            })
+
+            </script>
+          </div>
+
+          <div id="userSessionDynamicTable" class="centered" >
+            
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+</body>
+
+</html>
